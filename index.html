@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>n8n Personal Automation</title>
+  <meta name="description" content="A private n8n automation that organizes Ivan Chavarro's own Gmail inbox.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ee; --ink: #1c1b19; --muted: #6b665e; --card: #ffffffcc;
+      --line: #e3ddd2; --accent: #ea4b71; --accent-2: #ff8a5b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121110; --ink: #f1ede6; --muted: #a39d93; --card: #1c1a18cc; --line: #2c2925; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; font: 16px/1.6 Inter, system-ui, sans-serif;
+      color: var(--ink); background: var(--bg);
+      background-image:
+        radial-gradient(60rem 40rem at 110% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+        radial-gradient(50rem 30rem at -20% 110%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 60%);
+      display: grid; place-items: center; padding: 48px 16px;
+    }
+    main { width: 100%; max-width: 760px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; background: var(--card);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 4px #2fbf7133; }
+    h1 {
+      font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: -0.02em;
+      font-size: clamp(2.4rem, 7vw, 4rem); line-height: 1.05; margin: 20px 0 16px;
+    }
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 56ch; margin: 0 0 40px; }
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+    .step {
+      background: var(--card); backdrop-filter: blur(8px); border: 1px solid var(--line);
+      border-radius: 16px; padding: 20px;
+    }
+    .step b { display: block; font-weight: 500; margin-bottom: 4px; }
+    .step small { color: var(--muted); font-size: 14px; }
+    .num { font-family: Fraunces, Georgia, serif; color: var(--accent); font-size: 1.4rem; }
+    footer { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 20px; }
+    a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+    @media (max-width: 640px) { .flow { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge"><span class="dot"></span>Private, single-user app</span>
+    <h1>Inbox, <span>sorted on its own.</span></h1>
+    <p class="lead">
+      n8n Personal Automation is a self-hosted workflow that reads my own Gmail inbox,
+      classifies each message with a local AI model, and logs payments and investments
+      in my own Google Sheet. It is not a public service and has no other users.
+    </p>
+    <section class="flow" aria-label="How it works">
+      <div class="step"><span class="num">01</span><b>Read</b><small>New emails arrive from my Gmail account.</small></div>
+      <div class="step"><span class="num">02</span><b>Classify</b><small>A model on my own network labels each one.</small></div>
+      <div class="step"><span class="num">03</span><b>Organize</b><small>Payments and investments go to my spreadsheet.</small></div>
+    </section>
+    <footer>
+      <span>Contact: <a href="mailto:midasroom12@gmail.com">midasroom12@gmail.com</a></span>
+      <a href="privacy.html">Privacy policy</a>
+    </footer>
+  </main>
+</body>
+</html>
